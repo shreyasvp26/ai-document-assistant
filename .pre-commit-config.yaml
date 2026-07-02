@@ -1,0 +1,31 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: Ruff linting
+        entry: ruff check src/ tests/ app.py
+        language: system
+        pass_filenames: false
+        files: '\.py$'
+        stages: [pre-commit]
+
+      - id: no-secrets
+        name: Detect hardcoded secrets
+        entry: bash -c 'grep -rn --include="*.py" -E "(api_key|secret|password)\s*=\s*[\"'"'"'](?!your-|placeholder|example)" src/ app.py && exit 1 || exit 0'
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
+      - id: no-large-files
+        name: Prevent large file commits
+        entry: bash -c 'find . -type f -size +5M -not -path "./.git/*" -not -path "*/venv/*" -not -path "*/chroma_db/*" | head -5'
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
+      - id: pytest-quick
+        name: Quick test suite
+        entry: pytest tests/ -x -q
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]

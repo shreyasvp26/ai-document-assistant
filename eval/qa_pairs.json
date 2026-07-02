@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the most common material used in solar photovoltaic cells?",
+    "ground_truth": "Crystalline silicon is the most common material, accounting for over 90% of the global PV market."
+  },
+  {
+    "question": "How do solar photovoltaic cells generate electricity?",
+    "ground_truth": "When photons from sunlight strike the silicon cell, they knock electrons free from their atoms, creating an electric current through the photovoltaic effect."
+  },
+  {
+    "question": "What is the maximum rotor diameter of modern wind turbines?",
+    "ground_truth": "Modern wind turbines can have rotor diameters exceeding 150 meters and generate up to 15 MW of power."
+  },
+  {
+    "question": "Why are offshore wind farms preferred over onshore installations?",
+    "ground_truth": "Offshore wind farms benefit from stronger, more consistent wind patterns compared to onshore installations."
+  },
+  {
+    "question": "What is the current global grid-scale energy storage capacity?",
+    "ground_truth": "Grid-scale storage capacity reached 45 GW globally in 2024."
+  },
+  {
+    "question": "What types of batteries are emerging as alternatives to lithium-ion?",
+    "ground_truth": "Solid-state batteries and flow batteries are emerging as promising alternatives to lithium-ion technology."
+  },
+  {
+    "question": "What are the environmental benefits of solar energy compared to fossil fuels?",
+    "ground_truth": "Solar energy produces no direct greenhouse gas emissions during operation, unlike fossil fuels which release CO2 and other pollutants. A typical residential solar installation offsets approximately 3-4 tonnes of CO2 annually."
+  },
+  {
+    "question": "What is the efficiency range of modern commercial solar panels?",
+    "ground_truth": "Modern commercial solar panels typically achieve conversion efficiencies between 18% and 22%, with premium panels reaching up to 24%."
+  },
+  {
+    "question": "What role does hydrogen play in renewable energy storage?",
+    "ground_truth": "Green hydrogen, produced by electrolyzing water using renewable electricity, serves as a long-duration energy storage medium and can be used in fuel cells, industrial processes, and transportation."
+  },
+  {
+    "question": "What is the capital of France?",
+    "ground_truth": "This question is not related to the document content about renewable energy systems."
+  }
+]

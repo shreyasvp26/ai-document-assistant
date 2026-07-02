@@ -1,0 +1,31 @@
+# Core LLM & Orchestration
+langchain>=0.3,<0.4
+langchain-google-genai>=2.0
+langchain-community>=0.3
+langgraph>=0.2
+
+# Vector Store
+chromadb>=0.5
+
+# Frontend
+streamlit>=1.38
+
+# Document Processing
+pypdf>=4.0
+
+# Environment
+python-dotenv>=1.0
+
+# Web Search
+tavily-python>=0.5
+
+# Evaluation
+ragas>=0.4
+datasets>=2.0
+
+# Testing & Linting
+pytest>=8.0
+ruff>=0.6
+
+# PDF Generation (for sample.pdf)
+fpdf2>=2.7
