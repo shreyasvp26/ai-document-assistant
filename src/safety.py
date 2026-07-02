@@ -46,8 +46,8 @@ INJECTION_PATTERNS = [
     # System/admin role injection: "System: ..." or "ADMIN: ..."
     (
         re.compile(
-            r"^(system|admin|administrator|root|supervisor)\s*:\s*",
-            re.IGNORECASE | re.MULTILINE,
+            r"(?:^|(?<=[.!?])\s+|\n)(system|admin|administrator|root|supervisor)\s*:\s*",
+            re.IGNORECASE,
         ),
         "role-prefix-injection",
     ),
@@ -62,7 +62,7 @@ INJECTION_PATTERNS = [
     # "Act as..." or "Pretend to be..."
     (
         re.compile(
-            r"(act|pretend|behave|respond)\s+(as|like)\s+(a|an|the|if)\s+",
+            r"(act|pretend|behave|respond)\s+(as|like|to\s+be)\s+(a|an|the|if)\s+",
             re.IGNORECASE,
         ),
         "role-playing",
@@ -96,8 +96,8 @@ INJECTION_PATTERNS = [
     # "Reveal your prompt" / "Show me your instructions"
     (
         re.compile(
-            r"(reveal|show|display|print|output|tell\s+me)\s+"
-            r"(your|the|system)\s+(prompt|instructions?|rules?|system\s*message)",
+            r"(reveal|show|display|print|output|tell)(?:\s+me)?\s+"
+            r"(your|the|system)(?:\s+system)?\s+(prompt|instructions?|rules?|message)",
             re.IGNORECASE,
         ),
         "prompt-extraction",
