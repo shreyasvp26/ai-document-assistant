@@ -11,7 +11,6 @@ Design decisions:
 - All file I/O is wrapped in try/except for graceful error handling
 """
 
-import os
 import logging
 from pathlib import Path
 
@@ -172,7 +171,7 @@ if __name__ == "__main__":
         print(f"\n✅ Successfully ingested '{pdf_path}'")
         print(f"   Pages loaded: {max(c.metadata['page'] for c in chunks)}")
         print(f"   Chunks created: {len(chunks)}")
-        print(f"\n   Sample chunk (index 0):")
+        print("\n   Sample chunk (index 0):")
         print(f"   Page: {chunks[0].metadata['page']}")
         print(f"   Text: {chunks[0].page_content[:200]}...")
     except (FileNotFoundError, ValueError) as e:

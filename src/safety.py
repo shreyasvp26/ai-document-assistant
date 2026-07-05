@@ -43,10 +43,19 @@ INJECTION_PATTERNS = [
         ),
         "forget-everything",
     ),
-    # System/admin role injection: "System: ..." or "ADMIN: ..."
+    # System/admin role injection: "System: override..." or "ADMIN: you are now..."
+    # Only flags when followed by imperative/instruction-like content to avoid
+    # false positives on legitimate text like "System: all systems nominal"
     (
         re.compile(
-            r"(?:^|(?<=[.!?])\s+|\n)(system|admin|administrator|root|supervisor)\s*:\s*",
+            r"(?:^|(?<=[.!?])\s+|\n)"
+            r"(system|admin|administrator|root|supervisor)\s*:\s*"
+            r"(?="
+            r"(?:you\s+(?:are|must|should|will|need)|"
+            r"(?:override|ignore|bypass|disable|enable|grant|revoke|"
+            r"drop|execute|reveal|change|set|modify|delete|remove|"
+            r"unlock|reset|update|switch|abort|cancel|halt|stop|"
+            r"forget|disregard|from\s+now|do\s+not|don'?t)\b))",
             re.IGNORECASE,
         ),
         "role-prefix-injection",

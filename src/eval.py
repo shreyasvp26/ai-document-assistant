@@ -15,7 +15,6 @@ Design decisions:
 import os
 import json
 import logging
-from pathlib import Path
 from datetime import datetime
 
 from dotenv import load_dotenv
@@ -263,8 +262,8 @@ def write_results(
         "",
         f"**Evaluated:** {timestamp}",
         f"**Questions:** {len(pipeline_results['questions'])}",
-        f"**Model:** {os.getenv('GEMINI_MODEL', 'gemini-2.0-flash')}",
-        f"**Embedding:** {os.getenv('GEMINI_EMBEDDING_MODEL', 'gemini-embedding-001')}",
+        f"**Model:** {os.getenv('GEMINI_MODEL', 'gemini-2.5-flash')}",
+        f"**Embedding:** {os.getenv('GEMINI_EMBEDDING_MODEL', 'gemini-embedding-2')}",
         "",
         "## Overall Scores",
         "",
