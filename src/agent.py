@@ -18,14 +18,14 @@ Design decisions:
 
 import os
 import logging
-from typing import Literal, TypedDict, Annotated
+from typing import TypedDict
 
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, SystemMessage
 from langgraph.graph import StateGraph, END
 
-from src.tools import retrieve_docs, web_search, calculator, safe_calculate
+from src.tools import web_search, safe_calculate
 from src.vectorstore import rag_query
 from src.safety import apply_safety, apply_output_safety
 
@@ -136,7 +136,7 @@ def classify_intent(state: AgentState) -> AgentState:
     except Exception as e:
         logger.error(f"[ROUTER] Intent classification failed: {e}")
         intent = "direct"  # Safe fallback
-        print(f"\n⚠️ ROUTING FALLBACK: Classification failed, using DIRECT")
+        print("\n⚠️ ROUTING FALLBACK: Classification failed, using DIRECT")
 
     return {**state, "intent": intent}
 
@@ -152,7 +152,7 @@ def handle_retrieve(state: AgentState) -> AgentState:
     """
     user_input = state["user_input"]
     logger.info(f"[RETRIEVE] Searching documents for: '{user_input[:80]}...'")
-    print(f"📄 TOOL: retrieve_docs — searching uploaded documents...")
+    print("📄 TOOL: retrieve_docs — searching uploaded documents...")
 
     try:
         result = rag_query(user_input)
@@ -187,7 +187,7 @@ def handle_web_search(state: AgentState) -> AgentState:
     """
     user_input = state["user_input"]
     logger.info(f"[WEB_SEARCH] Searching web for: '{user_input[:80]}...'")
-    print(f"🌐 TOOL: web_search — searching the internet...")
+    print("🌐 TOOL: web_search — searching the internet...")
 
     try:
         result = web_search.invoke(user_input)
@@ -224,7 +224,7 @@ def handle_calculate(state: AgentState) -> AgentState:
     """
     user_input = state["user_input"]
     logger.info(f"[CALCULATE] Processing: '{user_input[:80]}...'")
-    print(f"🔢 TOOL: calculator — computing expression...")
+    print("🔢 TOOL: calculator — computing expression...")
 
     try:
         # Try to extract a mathematical expression from the input
@@ -275,7 +275,7 @@ def handle_direct(state: AgentState) -> AgentState:
     """
     user_input = state["user_input"]
     logger.info(f"[DIRECT] Generating direct response for: '{user_input[:80]}...'")
-    print(f"💬 TOOL: direct_answer — responding directly...")
+    print("💬 TOOL: direct_answer — responding directly...")
 
     try:
         llm = _get_llm()

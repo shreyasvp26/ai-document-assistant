@@ -13,7 +13,6 @@ Design decisions:
 
 import os
 import ast
-import math
 import logging
 import operator
 

@@ -9,7 +9,6 @@ Tests cover:
 import os
 import tempfile
 import pytest
-from unittest.mock import patch, MagicMock
 
 from src.ingestion import load_pdf, chunk_documents, ingest_pdf
 

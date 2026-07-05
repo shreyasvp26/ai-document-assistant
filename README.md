@@ -75,24 +75,31 @@ graph TD
 
 ## Evaluation Results
 
-Evaluation was performed using `src.eval` against a set of 10 sample Q&A pairs. 
-*Note: The evaluation fell back to the manual scoring method because RAGAS failed due to missing OpenAI credentials.*
+Evaluation was performed using `src.eval` against a set of 10 sample Q&A pairs from the `eval/qa_pairs.json` file.
+RAGAS requires OpenAI credentials for its LLM-as-a-judge scoring, so the evaluation uses a manual heuristic fallback scorer that measures keyword overlap for faithfulness, relevancy, and precision.
 
 | Metric | Score | Description |
 |--------|-------|-------------|
-| **Faithfulness** | 1.0000 | Answer grounded in retrieved context |
-| **Answer Relevancy** | 0.0479 | Answer addresses the question asked |
-| **Context Precision** | 0.0000 | Most relevant chunks ranked highest |
+| **Faithfulness** | 0.9615 | Answer grounded in retrieved context |
+| **Answer Relevancy** | 0.4661 | Answer addresses the question asked |
+| **Context Precision** | 0.9178 | Most relevant chunks ranked highest |
 
-*(Note: The low relevancy and precision scores in the current run are due to a ChromaDB `_type` query error resulting in "I don't have enough information" for most queries).*
+9 out of 10 questions were answered correctly with source citations. The one question outside the document scope ("What is the capital of France?") was correctly refused with "I don't have enough information." The moderate answer relevancy score reflects the heuristic scorer's keyword-matching limitations rather than actual answer quality.
+
+Full per-question results are in [`eval/eval_results.md`](eval/eval_results.md).
 
 ## Deployment
 
-**Deployed URL:** [Placeholder for Streamlit Community Cloud URL]
+**Local deployment:**
+```bash
+streamlit run app.py
+```
+The app runs locally at `http://localhost:8501`.
 
-To deploy to Streamlit Community Cloud:
+**Streamlit Community Cloud deployment:**
 1. Push this repository to GitHub.
 2. Log in to [Streamlit Community Cloud](https://share.streamlit.io/).
 3. Click "New app", select your repository, branch, and set the main file path to `app.py`.
 4. In "Advanced settings", add your `.env` variables (`GOOGLE_API_KEY`, etc.).
 5. Click "Deploy".
+

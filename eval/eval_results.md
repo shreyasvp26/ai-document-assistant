@@ -1,6 +1,6 @@
 # RAG Evaluation Results
 
-**Evaluated:** 2026-07-02 16:04:54
+**Evaluated:** 2026-07-05 19:41:02
 **Questions:** 10
 **Model:** gemini-2.5-flash
 **Embedding:** gemini-embedding-2
@@ -9,23 +9,23 @@
 
 | Metric | Score | Description |
 |--------|-------|-------------|
-| **Faithfulness** | 1.0000 | Answer grounded in retrieved context |
-| **Answer Relevancy** | 0.0479 | Answer addresses the question asked |
-| **Context Precision** | 0.0000 | Most relevant chunks ranked highest |
+| **Faithfulness** | 0.9615 | Answer grounded in retrieved context |
+| **Answer Relevancy** | 0.4661 | Answer addresses the question asked |
+| **Context Precision** | 0.9178 | Most relevant chunks ranked highest |
 
 ## Per-Question Results
 
 | # | Question | Answer (truncated) |
 |---|----------|-------------------|
-| 1 | What is the most common material used in solar photovoltaic  | I don't have enough information in the uploaded documents to answer this questio |
-| 2 | How do solar photovoltaic cells generate electricity? | I don't have enough information in the uploaded documents to answer this questio |
-| 3 | What is the maximum rotor diameter of modern wind turbines? | I don't have enough information in the uploaded documents to answer this questio |
-| 4 | Why are offshore wind farms preferred over onshore installat | I don't have enough information in the uploaded documents to answer this questio |
-| 5 | What is the current global grid-scale energy storage capacit | I don't have enough information in the uploaded documents to answer this questio |
-| 6 | What types of batteries are emerging as alternatives to lith | I don't have enough information in the uploaded documents to answer this questio |
-| 7 | What are the environmental benefits of solar energy compared | I don't have enough information in the uploaded documents to answer this questio |
-| 8 | What is the efficiency range of modern commercial solar pane | I don't have enough information in the uploaded documents to answer this questio |
-| 9 | What role does hydrogen play in renewable energy storage? | I don't have enough information in the uploaded documents to answer this questio |
+| 1 | What is the most common material used in solar photovoltaic  | The most common material used in solar photovoltaic cells is crystalline silicon |
+| 2 | How do solar photovoltaic cells generate electricity? | Solar photovoltaic (PV) technology generates electricity by converting sunlight  |
+| 3 | What is the maximum rotor diameter of modern wind turbines? | Modern wind turbines can have rotor diameters exceeding 150 meters. (Source: sam |
+| 4 | Why are offshore wind farms preferred over onshore installat | Offshore wind farms are preferred over onshore installations because they benefi |
+| 5 | What is the current global grid-scale energy storage capacit | Grid-scale storage capacity reached 45 GW globally in 2024. [Source: sample.pdf, |
+| 6 | What types of batteries are emerging as alternatives to lith | Emerging technologies like solid-state batteries and flow batteries are offering |
+| 7 | What are the environmental benefits of solar energy compared | Solar energy produces no direct greenhouse gas emissions during operation, unlik |
+| 8 | What is the efficiency range of modern commercial solar pane | Modern commercial solar panels typically achieve conversion efficiencies between |
+| 9 | What role does hydrogen play in renewable energy storage? | Green hydrogen, which is produced by electrolyzing water using renewable electri |
 | 10 | What is the capital of France? | I don't have enough information in the uploaded documents to answer this questio |
 
 ---

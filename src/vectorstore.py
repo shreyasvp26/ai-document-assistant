@@ -56,7 +56,7 @@ def get_embedding_function() -> GoogleGenerativeAIEmbeddings:
     """Create and return the embedding function using the configured Gemini model.
 
     Reads the embedding model name from GEMINI_EMBEDDING_MODEL env var,
-    defaulting to 'gemini-embedding-001' if not set.
+    defaulting to 'gemini-embedding-2' if not set.
 
     Returns:
         GoogleGenerativeAIEmbeddings instance ready for use.
@@ -365,7 +365,7 @@ if __name__ == "__main__":
         print(f"\n🤖 Question: '{question}'")
         print(f"\n📝 Answer: {result['answer']}")
         if result["sources"]:
-            print(f"\n📄 Sources:")
+            print("\n📄 Sources:")
             for s in result["sources"]:
                 print(f"   - {s['document']}, Page {s['page']}")
     else:

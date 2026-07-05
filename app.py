@@ -15,7 +15,6 @@ import sys
 import tempfile
 import logging
 from datetime import datetime
-from pathlib import Path
 
 import streamlit as st
 from dotenv import load_dotenv
@@ -222,7 +221,7 @@ def render_sidebar():
 
         if st.session_state.documents_ingested:
             st.markdown(
-                f'<span class="status-badge badge-success">✅ Document Loaded</span>',
+                '<span class="status-badge badge-success">✅ Document Loaded</span>',
                 unsafe_allow_html=True,
             )
             st.markdown(f"**Document:** {st.session_state.document_name}")
@@ -361,21 +360,21 @@ def export_conversation():
     doc_name = st.session_state.document_name or "no-document"
 
     lines = [
-        f"# AI Document Assistant — Conversation Notes",
-        f"",
+        "# AI Document Assistant — Conversation Notes",
+        "",
         f"**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M')}",
         f"**Document:** {doc_name}",
-        f"",
-        f"---",
-        f"",
+        "",
+        "---",
+        "",
     ]
 
     for msg in st.session_state.messages:
         role = "🧑 User" if msg["role"] == "user" else "🤖 Assistant"
         lines.append(f"### {role}")
-        lines.append(f"")
+        lines.append("")
         lines.append(msg["content"])
-        lines.append(f"")
+        lines.append("")
 
         if msg.get("sources"):
             lines.append("**Sources:**")
